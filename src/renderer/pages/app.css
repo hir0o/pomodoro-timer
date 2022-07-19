@@ -10,8 +10,12 @@ body {
   font-family: "roboto", sans-serif;
 }
 
-h1 {
-  background-color: #f0f;
+:root {
+  --work-1: #e91e63;
+  --work-2: #673ab7;
+  --break-1: #67b26f;
+  --break-2: #4ca2cd;
+  --timer-text: #eee;
 }
 
 .timer {
@@ -29,7 +33,7 @@ h1 {
 
 .timer__content {
   font-size: 55px;
-  color: #eee;
+  color: var(--timer-text);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -37,8 +41,8 @@ h1 {
 }
 
 .timer__count {
-  font-size: 30px;
-  color: #e91e63;
+  font-size: 20px;
+  color: var(--work-1);
   font-weight: bold;
   position: absolute;
   bottom: 40px;
@@ -46,19 +50,33 @@ h1 {
 }
 
 .timer[data-state="break"] .timer__count {
-  color: #4ca2cd;
+  color: var(--break-1);
 }
 
-.timer__title {
+.timer__state {
   position: absolute;
   top: 55px;
+  font-weight: bold;
   font-size: 20px;
-  color: #e91e63;
   transition: 3s;
 }
 
-.timer[data-state="break"] .timer__title {
-  color: #4ca2cd;
+.timer__state--work {
+  opacity: 0;
+  color: var(--work-1);
+}
+
+.timer__state--break {
+  opacity: 0;
+  color: var(--break-1);
+}
+
+.timer[data-state="work"] .timer__state--work {
+  opacity: 1;
+}
+
+.timer[data-state="break"] .timer__state--break {
+  opacity: 1;
 }
 
 circle {
@@ -79,19 +97,19 @@ svg {
 }
 
 #stop1 {
-  stop-color: #e91e63;
+  stop-color: var(--work-1);
   transition: 3s;
 }
 
 #stop1.break {
-  stop-color: #67b26f;
+  stop-color: var(--break-1);
 }
 
 #stop2 {
-  stop-color: #673ab7;
+  stop-color: var(--work-2);
   transition: 3s;
 }
 
 #stop2.break {
-  stop-color: #4ca2cd;
+  stop-color: var(--break-2);
 }

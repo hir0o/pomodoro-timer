@@ -3,11 +3,6 @@ import { useTime } from "~/hooks/useTime";
 
 const STROKE_DASHARRAY = 282;
 
-const colors = {
-  work: ["#e91e63", "#673ab7"] as const,
-  break: ["#67B26F", "#4ca2cd"] as const,
-};
-
 const isBreak = (time: Date): boolean => {
   const minutes = time.getMinutes();
   return minutes >= 50;
@@ -71,11 +66,12 @@ export const PomodoroTimer = () => {
   return (
     <div className="timer" data-state={state}>
       <>
-        <span className="timer__title">POMODORO</span>
+        <span className="timer__state timer__state--work">Work</span>
+        <span className="timer__state timer__state--break">Break</span>
         <span className="timer__content">
           {m}:{s}
         </span>
-        <span className="timer__count">#{count}</span>
+        <span className="timer__count">No.{count}</span>
         <svg className="timer__svg" viewBox="0 0 100 100">
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
