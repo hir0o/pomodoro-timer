@@ -30,7 +30,7 @@ app.on("ready", async () => {
     frame: false,
     alwaysOnTop: true,
     hasShadow: false,
-    // resizable: false,
+    resizable: false,
   });
   // mainWindow.setIgnoreMouseEvents(true);
   // mainWindow.maximize();

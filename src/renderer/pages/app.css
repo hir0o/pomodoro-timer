@@ -22,15 +22,39 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .timer__content {
-  font-size: 70px;
+  font-size: 55px;
   color: #eee;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .timer__count {
   font-size: 30px;
   color: #f0f;
-  font-weight: bolds;
+  font-weight: bold;
+  position: absolute;
+  bottom: 30px;
+}
+
+circle {
+  fill: none;
+  stroke: url(#gradient);
+  stroke-width: 4px;
+  stroke-dasharray: 282;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+}
+svg {
+  /* background-color: #fff; */
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
 }
