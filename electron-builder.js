@@ -1,5 +1,5 @@
 module.exports = {
-  productName: "ElectronStarter",
+  productName: "Pomo",
   asar: true,
   mac: {
     icon: "build/icon.png",

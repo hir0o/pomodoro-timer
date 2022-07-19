@@ -29,7 +29,7 @@ app.on("ready", async () => {
     transparent: true,
     frame: false,
     alwaysOnTop: true,
-    hasShadow: false,
+    hasShadow: true,
     resizable: false,
   });
   // mainWindow.setIgnoreMouseEvents(true);

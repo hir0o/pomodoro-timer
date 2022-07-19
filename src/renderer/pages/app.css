@@ -7,6 +7,7 @@
 body {
   -webkit-app-region: drag;
   background: rgba(0, 0, 0, 0);
+  font-family: "roboto", sans-serif;
 }
 
 h1 {
@@ -23,6 +24,7 @@ h1 {
   align-items: center;
   justify-content: center;
   position: relative;
+  cursor: grab;
 }
 
 .timer__content {
@@ -36,10 +38,27 @@ h1 {
 
 .timer__count {
   font-size: 30px;
-  color: #f0f;
+  color: #e91e63;
   font-weight: bold;
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
+  transition: 3s;
+}
+
+.timer[data-state="break"] .timer__count {
+  color: #4ca2cd;
+}
+
+.timer__title {
+  position: absolute;
+  top: 55px;
+  font-size: 20px;
+  color: #e91e63;
+  transition: 3s;
+}
+
+.timer[data-state="break"] .timer__title {
+  color: #4ca2cd;
 }
 
 circle {
@@ -50,11 +69,29 @@ circle {
   stroke-dashoffset: 0;
   stroke-linecap: round;
 }
+
 svg {
-  /* background-color: #fff; */
   width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+#stop1 {
+  stop-color: #e91e63;
+  transition: 3s;
+}
+
+#stop1.break {
+  stop-color: #67b26f;
+}
+
+#stop2 {
+  stop-color: #673ab7;
+  transition: 3s;
+}
+
+#stop2.break {
+  stop-color: #4ca2cd;
 }
