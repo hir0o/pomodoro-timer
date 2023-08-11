@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useTime } from "~/hooks/useTime";
 
 const STROKE_DASHARRAY = 282;
@@ -30,7 +29,7 @@ const getCount = (time: Date) => {
 };
 
 const zeroPadding = (num: number): string => {
-  return ("0" + num.toString()).slice(-2);
+  return num.toString().padStart(2, "0");
 };
 
 const getProgress = (time: Date): number => {
@@ -49,19 +48,11 @@ const getStrokeDashoffset = (progress: number): number => {
 
 export const PomodoroTimer = () => {
   const time = useTime();
-  const [m, setM] = useState("");
-  const [s, setS] = useState("");
-  const [count, setCount] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [state, setState] = useState<"work" | "break">("work");
-
-  useEffect(() => {
-    setM(zeroPadding(getM(time)));
-    setS(zeroPadding(getS(time)));
-    setCount(getCount(time));
-    setProgress(getProgress(time));
-    setState(isBreak(time) ? "break" : "work");
-  }, [time]);
+  const minutes = zeroPadding(time.getMinutes());
+  const seconds = zeroPadding(time.getSeconds());
+  const count = getCount(time);
+  const progress = getProgress(time);
+  const state = isBreak(time) ? "break" : "work";
 
   return (
     <div className="timer" data-state={state}>
@@ -69,7 +60,7 @@ export const PomodoroTimer = () => {
         <span className="timer__state timer__state--work">Work</span>
         <span className="timer__state timer__state--break">Break</span>
         <span className="timer__content">
-          {m}:{s}
+          {minutes}:{seconds}
         </span>
         <span className="timer__count">No.{count}</span>
         <svg className="timer__svg" viewBox="0 0 100 100">
